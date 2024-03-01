@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
   --degree: 90deg;
@@ -37,12 +36,6 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -58,7 +51,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
-  animation: 1s ease-in shadowSpread forwards ;
+  animation: .2s ease-in shadowSpread forwards ;
 }
 button:focus,
 button:focus-visible {

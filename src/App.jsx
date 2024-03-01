@@ -2,11 +2,8 @@ import './App.css'
 import Header from './Header'
 import Form from './Form'
 import { useState } from 'react'
-import Guest from './Guest'
-
-// Guests Pictures
-import guerid from './assets/guests/guerid.jpg'
 import Banner from './Banner'
+import Guests from './Guests'
 
 function App() {
   const fakeset = [
@@ -15,13 +12,7 @@ function App() {
     { name: 'Sidahmed Kessas', age: 21, email: 'cefyou2004@gmail.com', phone: 213783141085 }
   ]
 
-  const guestsList = [
-    { id: 0, name: 'Hachem Guerrid', picture: guerid, details: "PhD, Cyber Security | University Professor" },
-    { id: 1, name: 'Hachem Guerrid', picture: guerid, details: "PhD, Cyber Security | University Professor" },
-    { id: 2, name: 'Hachem Guerrid', picture: guerid, details: "PhD, Cyber Security | University Professor" },
-    { id: 3, name: 'Hachem Guerrid', picture: guerid, details: "PhD, Cyber Security | University Professor" },
-
-  ]
+  
   const [scroll, setScroll] = useState(90)
   const [scrollPerc, setScrollPerc] = useState(25)
   function update() {
@@ -46,9 +37,8 @@ function App() {
     <>
       <Header />
       <Banner />
-
-      <h1 className='text-[#04ffff] font-Press_Start_2P'>Our <span className='text-[#00b8fd] '>Guest</span> Speakers</h1>
-      {guestsList.map(guest => <Guest {...guest} />)}
+      <Guests/>
+      
       <Form />
 
     </>
