@@ -23,6 +23,10 @@
   animation: flicker 1.5s infinite alternate;
 }
 
+.navArrow {
+  animation: backForth 1s infinite alternate;
+}
+
 .banner {
   background: rgb(224,194,129);
   background: radial-gradient(circle, rgba(224,194,129,1) var(--percent), rgba(34,193,195,1) 83%);
@@ -58,13 +62,9 @@
   }
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
+@keyframes backForth {
   to {
-    transform: rotate(360deg);
+    width: 3rem;
   }
 }
 
