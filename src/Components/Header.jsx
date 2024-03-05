@@ -1,7 +1,7 @@
 import React from 'react'
-import owbLogo from './assets/owb/logo-no-background.svg'
-import owbGlobe from './assets/owb/logo-globe-color.svg'
-import assocLogo from './assets/assoc_logo.jpg'
+import owbLogo from '../assets/owb/logo-no-background.svg'
+import owbGlobe from '../assets/owb/logo-globe-color.svg'
+import assocLogo from '../assets/assoc_logo.jpg'
 import NavBar from './NavBar'
 
 function Header() {

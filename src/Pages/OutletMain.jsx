@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import Header from './Header';
+import Header from '../Components/Header';
 
 function OutletMain() {
     const { pathname } = useLocation();

@@ -1,12 +1,12 @@
 import React from 'react'
-import oneFinger from './assets/one-finger.svg'
-import twoFinger from './assets/two-finger.svg'
-import threeFinger from './assets/three-finger.svg'
-import fourFinger from './assets/four-finger.svg'
-import Guests from './Guests'
+import oneFinger from '../assets/one-finger.svg'
+import twoFinger from '../assets/two-finger.svg'
+import threeFinger from '../assets/three-finger.svg'
+import fourFinger from '../assets/four-finger.svg'
+import Guests from '../Components/Guests'
 
 function Banner() {
-  const className = { li: 'flex justify-center items-center gap-5' }
+  const className = { li: 'flex justify-center items-center gap-5 text-left'}
   return (
     <>
       <section className=' flex flex-col justify-center items-center gap-5 text-white [text-shadow:_1px_1px_10px_#00b8fd] [text-shadow:_0_0px_5px_#eeff00] -mt-14 w-full sm:gap-20'>
@@ -15,7 +15,7 @@ function Banner() {
           <li className={className.li}>
             <img src={oneFinger} alt="one Finger" className='w-5 sm:w-10 inline' />
             <p>
-              Get your Digital Certificat
+              Get your Coding Digital Certificat
             </p>
           </li>
 

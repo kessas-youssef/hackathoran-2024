@@ -1,6 +1,6 @@
 import React from 'react'
 import Guest from './Guest'
-import guerid from './assets/guests/guerid.jpg'
+import guerid from '../assets/guests/guerid.jpg'
 
 function Guests() {
     const guestsList = [
@@ -14,7 +14,7 @@ function Guests() {
         <section className='space-y-10'>
             <h1 className='text-[#04ffff] font-Press_Start_2P sm:text-3xl'>Our <span className='text-[#00b8fd]'>Guest</span> Speakers</h1>
             <ul className='flex gap-7 justify-center items-center flex-wrap'>
-            {guestsList.map(guest => <Guest {...guest} />)}
+            {guestsList.map(guest => <Guest key={guest.id} {...guest} />)}
             </ul>
         </section>
     )

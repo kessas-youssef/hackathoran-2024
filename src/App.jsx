@@ -1,10 +1,11 @@
-import './App.css'
-import Form from './Form'
+import './Style/App.css'
+import Form from './Pages/Form'
 import { useState } from 'react'
-import Home from './Home'
-import Program from './Program'
+import Home from './Pages/Home'
+import Program from './Pages/Program'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import OutletMain from './OutletMain'
+import OutletMain from './Pages/OutletMain'
+import Prizes from './Pages/Prizes'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         { path: 'home', element: <Home /> },
         { path: 'timeline', element: <Program /> },
         { path: 'register', element: <Form /> },
+        { path: 'prize', element: <Prizes /> },
       ]
     }]
   )
