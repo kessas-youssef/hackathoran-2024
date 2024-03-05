@@ -11,7 +11,7 @@ function Form() {
     // Event Handlers
     const formSubmitHandler = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:3030/api/addUser',
+        const res = await fetch('https://hackathoran-2024-backend.onrender.com/api/addUser',
             {
                 method:"POST",
                 headers:{
