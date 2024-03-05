@@ -2,7 +2,7 @@
   "name": "owb_hackathoran",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kessas-youssef.github.io/hackathoran-2024/",
+  "homepage": "https://kessas-youssef.github.io/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
