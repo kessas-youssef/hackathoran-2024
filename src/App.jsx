@@ -15,7 +15,7 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: 'hackathoran-2024/', element: <OutletMain/>,
+      path: '/', element: <OutletMain/>,
       children: [
         { path: 'home', element: <Home /> },
         { path: 'timeline', element: <Program /> },
