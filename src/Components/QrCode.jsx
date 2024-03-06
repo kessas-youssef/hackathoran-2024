@@ -1,5 +1,6 @@
 import React from 'react';
-import QRCode from 'qrcode.react';
+import QRCode, { QRCodeSVG } from 'qrcode.react';
+import owb_logo from '../assets/owb/logo-globe-bw.svg'
 
 function QrCode({ qrCodeText, userEmail }) {
 
@@ -23,6 +24,17 @@ function QrCode({ qrCodeText, userEmail }) {
                 id="qrCodeEl"
                 size={150}
                 value={qrCodeText}
+                includeMargin={true}
+                bgColor={"#ffffff"}
+                fgColor={"#000000"}
+                imageSettings={{
+                    src: owb_logo,
+                    x: undefined,
+                    y: undefined,
+                    height: 25,
+                    width: 25,
+                    excavate: true,
+                }}
             />
             <br />
             <button
