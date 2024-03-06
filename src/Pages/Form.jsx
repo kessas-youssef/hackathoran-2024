@@ -1,28 +1,30 @@
 import React, { useReducer, useState } from 'react'
 import InputWrap from '../Components/InputWrap';
 import FormReducer from '../Components/FormReducer';
+import QrCode from '../Components/QrCode';
 
 function Form() {
 
-    
+
     const [user, dispatch] = useReducer(FormReducer, { name: '', age: '', phone: '', email: '', level: 'beginner', date: null })
-    const [response, setResponse] = useState({submit:false});
+    const [response, setResponse] = useState({ submit: false });
 
     // Event Handlers
     const formSubmitHandler = async (e) => {
         e.preventDefault();
         const res = await fetch('https://hackathoran-2024-backend.onrender.com/api/addUser',
+            // const res = await fetch('http://localhost:3030/api/addUser',
             {
-                method:"POST",
-                headers:{
+                method: "POST",
+                headers: {
                     "Content-Type": "application/json"
                 },
-                body:JSON.stringify(user)
+                body: JSON.stringify(user)
             }
         )
 
         const data = await res.json()
-        setResponse({submit:true, ...data});
+        setResponse({ submit: true, ...data });
     }
 
     const nameHandler = (e) => dispatch({ type: 'name', nextVal: e.target.value })
@@ -54,7 +56,7 @@ function Form() {
 
             <InputWrap>
                 <label htmlFor="phone" className='text-left ' >Phone Number</label>
-                <input id='phone' type="phone" required maxLength={10} minLength={10} placeholder='Ex: 07xxxxxxxx' onChange={phoneHandler}  />
+                <input id='phone' type="phone" required maxLength={10} minLength={10} placeholder='Ex: 07xxxxxxxx' onChange={phoneHandler} />
             </InputWrap>
 
             <InputWrap>
@@ -71,12 +73,18 @@ function Form() {
                 <label htmlFor="condition" className='hover:cursor-pointer'>I agree to bring my personal laptop*</label>
             </InputWrap>
 
-            <button type="submit" className='submitBtn invalid:border-red-700 ' onClick={dateHandler}>Let's HACK !</button>
+            <button type="submit" className={`submitBtn ${response.submit ? 'invisible' : ''} invalid:border-red-700`} onClick={dateHandler}>Let's HACK !</button>
         </form>
         ||
         <div className='bg-white flex flex-col justify-center items-center space-y-8 p-10 rounded-md'>
-                <h2>{response.message}</h2>
-                <button className='submitBtn invalid:border-red-700' onClick={() => setResponse({...response, submit:false})}>Back to register</button>
+            <h2 className={'font-extrabold' + ' ' + (response.isError === true ? 'text-red-400' : '')}>{response.message}</h2>
+
+            {
+                response.content
+                &&
+                <QrCode qrCodeText={`${response.content._doc.name} is registered under ${response.content._doc.email}`} userEmail={response.content.email} />
+            }
+            <button className='submitBtn p-2 border-none invalid:border-red-700' onClick={() => setResponse({ ...response, submit: false })}>Back to register</button>
         </div>
     )
 }
