@@ -1,9 +1,10 @@
 import React from 'react'
 import Guest from './Guest'
+import guerid from '../assets/guests/guerid.jpg'
 
 function Guests() {
     const guestsList = [
-        { id: 0, name: 'Hachem Guerrid', picture: '/src/assets/guests/guerid.jpg', details: "PhD, Cyber Security | University Professor" },
+        { id: 0, name: 'Hachem Guerrid', picture: guerid, details: "PhD, Cyber Security | University Professor" },
     ]
     return (
         <section className='space-y-10'>
