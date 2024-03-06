@@ -8,6 +8,8 @@ function Form() {
 
     const [user, dispatch] = useReducer(FormReducer, { name: '', age: '', phone: '', email: '', level: 'beginner', date: null })
     const [response, setResponse] = useState({ submit: false });
+    const qrCodeText = response.content && `${response.content._doc.name} \n ${response.content._doc.email} \n Date: ${response.content._doc.date} \n ${response.content._doc.level} \n  Centre des Loisirs Scientifiques CLS
+    USTO HLM Coop. Météo` 
 
     // Event Handlers
     const formSubmitHandler = async (e) => {
@@ -38,7 +40,7 @@ function Form() {
         !response.submit
         &&
         <form action="POST" onSubmit={formSubmitHandler} className={`bg-white flex flex-col justify-center items-center space-y-8 p-10 rounded-md`}>
-            <h2 className='font-bold text-xl mb-5'>Get your free E-Ticket NOW!</h2>
+            <h2 className='mb-5 text-xl font-bold'>Get your free E-Ticket NOW!</h2>
             <InputWrap>
                 <label htmlFor="fname">Full Name</label>
                 <input id='fname' type="text" required placeholder='Ex: Youcef Kessas' onChange={nameHandler} />
@@ -76,15 +78,15 @@ function Form() {
             <button type="submit" className={`submitBtn ${response.submit ? 'invisible' : ''} invalid:border-red-700`} onClick={dateHandler}>Let's HACK !</button>
         </form>
         ||
-        <div className='bg-white flex flex-col justify-center items-center space-y-8 p-10 rounded-md'>
+        <div className='flex flex-col items-center justify-center p-10 space-y-8 bg-white rounded-md'>
             <h2 className={'font-extrabold' + ' ' + (response.isError === true ? 'text-red-400' : '')}>{response.message}</h2>
 
             {
                 response.content
                 &&
-                <QrCode qrCodeText={`${response.content._doc.name} is registered under ${response.content._doc.email}`} userEmail={response.content.email} />
+                <QrCode qrCodeText={qrCodeText} userEmail={response.content.email} isBtn={true} />
             }
-            <button className='submitBtn p-2 border-none invalid:border-red-700' onClick={() => setResponse({ ...response, submit: false })}>Back to register</button>
+            <button className='p-2 border-none submitBtn invalid:border-red-700' onClick={() => setResponse({ ...response, submit: false })}>Back to register</button>
         </div>
     )
 }

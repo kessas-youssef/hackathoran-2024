@@ -1,8 +1,8 @@
 import React from 'react';
-import QRCode, { QRCodeSVG } from 'qrcode.react';
+import QRCode from 'qrcode.react';
 import owb_logo from '../assets/owb/logo-globe-bw.svg'
 
-function QrCode({ qrCodeText, userEmail }) {
+function QrCode({ qrCodeText, userEmail, isBtn }) {
 
     // download QR code
     const downloadQRCode = () => {
@@ -31,15 +31,15 @@ function QrCode({ qrCodeText, userEmail }) {
                     src: owb_logo,
                     x: undefined,
                     y: undefined,
-                    height: 25,
-                    width: 25,
+                    height: 20,
+                    width: 20,
                     excavate: true,
                 }}
             />
             <br />
             <button
                 type="button"
-                className='submitBtn invalid:border-red-700'
+                className={'submitBtn invalid:border-red-700' + ' ' + (isBtn ?'':'hidden')}
                 value="Download"
                 onClick={downloadQRCode}
             >Download E-Ticket</button>
