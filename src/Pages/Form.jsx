@@ -43,7 +43,7 @@ function Form() {
             <h2 className='mb-5 text-xl font-bold'>Get your free E-Ticket NOW!</h2>
             <InputWrap>
                 <label htmlFor="fname">Full Name</label>
-                <input id='fname' type="text" required placeholder='Ex: Youcef Kessas' onChange={nameHandler} />
+                <input id='fname' type="text" required placeholder='Ex: Amar Benamar' onChange={nameHandler} />
             </InputWrap>
 
             <InputWrap>
