@@ -37,6 +37,8 @@ function Form() {
     const dateHandler = () => dispatch({ type: 'date', nextVal: new Date() })
 
     return (
+        <h1 className='font-extrabold text-white'>There are no events registrations yet.</h1>
+        ||
         !response.submit
         &&
         <form action="POST" onSubmit={formSubmitHandler} className={`bg-white flex flex-col justify-center items-center space-y-8 p-10 rounded-md`}>
