@@ -41,7 +41,7 @@ function Form() {
         ||
         !response.submit
         &&
-        <form action="POST" onSubmit={formSubmitHandler} className={`bg-white flex flex-col justify-center items-center space-y-8 p-10 rounded-md`}>
+        <form action="POST" onSubmit={formSubmitHandler} className={`bg-white flex flex-col justify-center items-center space-y-8 p-10 rounded-md ${!response.submit? 'after:invisible':''} after:content-[\" \"] relative  after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:z-20 after:bg-slate-500`}>
             <h2 className='mb-5 text-xl font-bold'>Get your free E-Ticket NOW!</h2>
             <InputWrap>
                 <label htmlFor="fname">Full Name</label>
@@ -81,14 +81,8 @@ function Form() {
         </form>
         ||
         <div className='flex flex-col items-center justify-center p-10 space-y-8 bg-white rounded-md'>
-            <h2 className={'font-extrabold' + ' ' + (response.isError === true ? 'text-red-400' : '')}>{response.message}</h2>
-
-            {
-                response.content
-                &&
-                <QrCode qrCodeText={qrCodeText} userEmail={response.content.email} isBtn={true} />
-            }
-            <button className='p-2 border-none submitBtn invalid:border-red-700' onClick={() => setResponse({ ...response, submit: false })}>Back to register</button>
+                <h2>{response.message}</h2>
+                <button className='submitBtn invalid:border-red-700' onClick={() => setResponse({...response, submit:false})}>Back to register</button>
         </div>
     )
 }
